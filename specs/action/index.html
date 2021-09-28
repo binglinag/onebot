@@ -1,0 +1,2424 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>动作（Action） - OneBot v12 标准文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+  
+
+
+  
+
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-7GZP8RMCBB"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){gtag("config","G-7GZP8RMCBB",{page_path:t.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7GZP8RMCBB"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#onebot" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OneBot v12 标准文档" class="md-header__button md-logo" aria-label="OneBot v12 标准文档" data-md-component="logo">
+      
+  <img src="../../assets/logo-white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OneBot v12 标准文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              动作（Action）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/botuniverse/onebot/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    botuniverse/onebot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../production/" class="md-tabs__link">
+      介绍
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ecosystem/libonebot/" class="md-tabs__link">
+        生态
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../glossary/" class="md-tabs__link md-tabs__link--active">
+        指南
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OneBot v12 标准文档" class="md-nav__button md-logo" aria-label="OneBot v12 标准文档" data-md-component="logo">
+      
+  <img src="../../assets/logo-white.png" alt="logo">
+
+    </a>
+    OneBot v12 标准文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/botuniverse/onebot/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    botuniverse/onebot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../production/" class="md-nav__link">
+        介绍
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        生态
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="生态" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          生态
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ecosystem/libonebot/" class="md-nav__link">
+        OneBot 实现 / LibOneBot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ecosystem/onebot-sdk/" class="md-nav__link">
+        OneBot 开发框架 / SDK
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ecosystem/onebot-application/" class="md-nav__link">
+        OneBot 应用案例
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        指南
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        概述
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="概述" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          概述
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        术语表
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        OneBot RPC
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="OneBot RPC" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          OneBot RPC
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_1" type="checkbox" id="__nav_4_2_1" >
+      
+      <label class="md-nav__link" for="__nav_4_2_1">
+        通信
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="通信" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          通信
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communication/" class="md-nav__link">
+        通信概述
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communication/http/" class="md-nav__link">
+        HTTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communication/http-webhook/" class="md-nav__link">
+        HTTP Webhook
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communication/websocket/" class="md-nav__link">
+        正向 WebSocket
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communication/websocket-reverse/" class="md-nav__link">
+        反向 WebSocket
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_2" type="checkbox" id="__nav_4_2_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2_2">
+        数据协议
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据协议" data-md-level="3">
+        <label class="md-nav__title" for="__nav_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据协议
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../onebot-rpc/event/" class="md-nav__link">
+        事件
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../onebot-rpc/action/" class="md-nav__link">
+        动作
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../onebot-rpc/action-response/" class="md-nav__link">
+        动作响应
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        消息格式
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="消息格式" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          消息格式
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../message/message-array/" class="md-nav__link">
+        消息格式
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        核心接口定义
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="核心接口定义" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          核心接口定义
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          动作（Action）
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        动作（Action）
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#send_message" class="md-nav__link">
+    send_message 发送消息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete_message" class="md-nav__link">
+    delete_message 撤回消息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_group_kick" class="md-nav__link">
+    set_group_kick 群组踢人
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_group_ban" class="md-nav__link">
+    set_group_ban 群组禁言某人
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_group_admin" class="md-nav__link">
+    set_group_admin 设置群管理员
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_group_leave" class="md-nav__link">
+    set_group_leave 退出群组
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_group_name" class="md-nav__link">
+    set_group_name 设置群名
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_self_info" class="md-nav__link">
+    get_self_info 获取机器人信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_user_info" class="md-nav__link">
+    get_user_info 获取用户信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_friend_list" class="md-nav__link">
+    get_friend_list 获取好友列表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_group_info" class="md-nav__link">
+    get_group_info 获取群组信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_group_list" class="md-nav__link">
+    get_group_list 获取群组列表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_group_member_info" class="md-nav__link">
+    get_group_member_info 获取群成员信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_group_member_list" class="md-nav__link">
+    get_group_member_list 获取群成员列表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_file" class="md-nav__link">
+    get_file 获取文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_file" class="md-nav__link">
+    upload_file 上传文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_file_fragmented" class="md-nav__link">
+    upload_file_fragmented 分段上传文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_status-onebot" class="md-nav__link">
+    get_status 获取 OneBot 状态
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_version" class="md-nav__link">
+    get_version 获取版本信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_latest_events" class="md-nav__link">
+    get_latest_events 轮询获取事件列表
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event/" class="md-nav__link">
+        事件（Event）
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#send_message" class="md-nav__link">
+    send_message 发送消息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete_message" class="md-nav__link">
+    delete_message 撤回消息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_group_kick" class="md-nav__link">
+    set_group_kick 群组踢人
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_group_ban" class="md-nav__link">
+    set_group_ban 群组禁言某人
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_group_admin" class="md-nav__link">
+    set_group_admin 设置群管理员
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_group_leave" class="md-nav__link">
+    set_group_leave 退出群组
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set_group_name" class="md-nav__link">
+    set_group_name 设置群名
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_self_info" class="md-nav__link">
+    get_self_info 获取机器人信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_user_info" class="md-nav__link">
+    get_user_info 获取用户信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_friend_list" class="md-nav__link">
+    get_friend_list 获取好友列表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_group_info" class="md-nav__link">
+    get_group_info 获取群组信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_group_list" class="md-nav__link">
+    get_group_list 获取群组列表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_group_member_info" class="md-nav__link">
+    get_group_member_info 获取群成员信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_group_member_list" class="md-nav__link">
+    get_group_member_list 获取群成员列表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_file" class="md-nav__link">
+    get_file 获取文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_file" class="md-nav__link">
+    upload_file 上传文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upload_file_fragmented" class="md-nav__link">
+    upload_file_fragmented 分段上传文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_status-onebot" class="md-nav__link">
+    get_status 获取 OneBot 状态
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_version" class="md-nav__link">
+    get_version 获取版本信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_latest_events" class="md-nav__link">
+    get_latest_events 轮询获取事件列表
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/botuniverse/onebot/blob/v12-draft/v12/docs/specs/action/index.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="onebot">OneBot 动作</h1>
+<p>OneBot 动作（原 OneBot API）是指通过通信方式向用户提供操作接口，例如发送消息、上传下载图片等操作。</p>
+<p>对于 OneBot 动作的格式定义，见 <a href="../onebot-rpc/action">OneBot RPC - 动作</a>。</p>
+<p>本章列举了 OneBot 标准需要实现的公开 Action 内容。</p>
+<h2 id="send_message">send_message 发送消息</h2>
+<p>给用户发送消息的动作。</p>
+<blockquote>
+<p>对于不同平台的 <code>detail_type</code>，如果符合支持的类型，如私聊对应 <code>private</code>，群组对应 <code>group</code>，则<strong>必须</strong>使用不带前缀的发送类型和 <code>xxx_id</code>。</p>
+<p>对于其他发送类型，假设过去的 QQ 还存在讨论组的情况，可以指定讨论组为 <code>qq_discuss</code> 的类型，然后参数<strong>必须</strong>带有对应的目标身份地址，如 <code>qq_discuss_id</code> 参数。</p>
+</blockquote>
+<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>如果 <code>detail_type</code> 为 <code>group</code> 则<strong>必须</strong>包含 <code>group_id</code> 用于确定发送的目标群组</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>如果 <code>detail_type</code> 为 <code>private</code> 则<strong>必须</strong>包含 <code>user_id</code> 用于确定用户身份</td>
+</tr>
+<tr>
+<td><code>detail_type</code></td>
+<td>string</td>
+<td>-</td>
+<td>发送的类型，<strong>必须</strong>为 <code>group</code>、<code>private</code>、<code>impl_spec_xxx</code> 中的一种（第三个是指不同平台的扩展子类型）</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>array</td>
+<td>-</td>
+<td><strong>必须</strong>包含消息本身的内容，其中消息必须为 array 格式的消息段，有关消息段内容的定义，见 <a href="../message/message-array">消息段</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">响应参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>message_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>唯一的消息 ID，无论消息是否成功发送</td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td>int64</td>
+<td>-</td>
+<td>消息成功发出的时间戳</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;send_message&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;detail_type&quot;</span><span class="p">:</span> <span class="s2">&quot;group&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12467&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;我是文字巴拉巴拉巴拉&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;message_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2452352435&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1627476314</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="delete_message">delete_message 撤回消息</h2>
+<p>撤回一条信息。</p>
+<div class="tabbed-set" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>message_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>唯一的消息 ID</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">响应参数</label><div class="tabbed-content">
+<p>无响应参数。</p>
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_message&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;message_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2452352435&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><label for="__tabbed_2_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="set_group_kick">set_group_kick 群组踢人</h2>
+<p>踢出一名群成员。</p>
+<div class="tabbed-set" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>执行踢人动作的群号</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>要踢的用户 ID</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">响应参数</label><div class="tabbed-content">
+<p>无响应参数。</p>
+</div>
+<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;set_group_kick&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2452352435&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><label for="__tabbed_3_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="set_group_ban">set_group_ban 群组禁言某人</h2>
+<p>禁言群内的某人或全部禁言。</p>
+<blockquote>
+<p>如果 OneBot 对应的平台存在全员禁言，可以通过增加扩展字段扩展此接口。</p>
+</blockquote>
+<div class="tabbed-set" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>执行禁言动作的群号</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>要禁言的用户 ID</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">响应参数</label><div class="tabbed-content">
+<p>无响应参数。</p>
+</div>
+<input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><label for="__tabbed_4_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;set_group_ban&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2452352435&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><label for="__tabbed_4_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="set_group_admin">set_group_admin 设置群管理员</h2>
+<p>将群内某人设置为管理员或取消管理员。</p>
+<div class="tabbed-set" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>执行动作的群号</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>要设置的用户 ID</td>
+</tr>
+<tr>
+<td><code>enable</code></td>
+<td>bool</td>
+<td><code>true</code></td>
+<td><code>true</code> 为设置，<code>false</code> 为取消设置</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">响应参数</label><div class="tabbed-content">
+<p>无响应参数。</p>
+</div>
+<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;set_group_admin&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2452352435&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;enable&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><label for="__tabbed_5_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="set_group_leave">set_group_leave 退出群组</h2>
+<p>让机器人从某个群组退出。</p>
+<div class="tabbed-set" data-tabs="6:4"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>执行动作的群号</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">响应参数</label><div class="tabbed-content">
+<p>无响应参数。</p>
+</div>
+<input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><label for="__tabbed_6_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;set_group_leave&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2452352435&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><label for="__tabbed_6_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="set_group_name">set_group_name 设置群名</h2>
+<p>设置群名。</p>
+<div class="tabbed-set" data-tabs="7:4"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>执行动作的群号</td>
+</tr>
+<tr>
+<td><code>group_name</code></td>
+<td>string</td>
+<td>-</td>
+<td>新群名</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">响应参数</label><div class="tabbed-content">
+<p>无响应参数。</p>
+</div>
+<input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><label for="__tabbed_7_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;set_group_name&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2452352435&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;group_name&quot;</span><span class="p">:</span> <span class="s2">&quot;一个非常普通的群名&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_7_4" name="__tabbed_7" type="radio" /><label for="__tabbed_7_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="get_self_info">get_self_info 获取机器人信息</h2>
+<p>获取机器人自身的信息。</p>
+<div class="tabbed-set" data-tabs="8:4"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">参数</label><div class="tabbed-content">
+<p>无请求参数。</p>
+</div>
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">响应参数</label><div class="tabbed-content">
+<blockquote>
+<p>OneBot 标准只规定 <code>user_id</code> 和 <code>nickname</code> 参数作为必须返回的内容，其他机器人信息可以使用扩展字段。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>机器人的用户 ID</td>
+</tr>
+<tr>
+<td><code>nickname</code></td>
+<td>string</td>
+<td>-</td>
+<td>机器人的名称</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><label for="__tabbed_8_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;get_self_info&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_8_4" name="__tabbed_8" type="radio" /><label for="__tabbed_8_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;nickname&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="get_user_info">get_user_info 获取用户信息</h2>
+<p>通过 <code>user_id</code> 获取用户的信息，可以是好友，也可以是陌生人。</p>
+<div class="tabbed-set" data-tabs="9:4"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>用户 ID</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><label for="__tabbed_9_2">响应参数</label><div class="tabbed-content">
+<blockquote>
+<p>OneBot 标准只规定 <code>user_id</code> 和 <code>nickname</code> 参数作为必须返回的内容，其他信息可以使用扩展字段。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>用户 ID</td>
+</tr>
+<tr>
+<td><code>nickname</code></td>
+<td>string</td>
+<td>-</td>
+<td>用户昵称</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><label for="__tabbed_9_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;get_user_info&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_9_4" name="__tabbed_9" type="radio" /><label for="__tabbed_9_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;nickname&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="get_friend_list">get_friend_list 获取好友列表</h2>
+<p>获取机器人的关注者或好友列表。</p>
+<blockquote>
+<p>OneBot 标准只规定 <code>user_id</code> 和 <code>nickname</code> 参数作为必须返回的内容，其他信息（例如分组信息）可以使用扩展字段。</p>
+<p>响应内容为 json 数组格式，参数内的字段为每个元素内的参数。</p>
+</blockquote>
+<div class="tabbed-set" data-tabs="10:4"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">参数</label><div class="tabbed-content">
+<p>无请求参数。</p>
+</div>
+<input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><label for="__tabbed_10_2">响应参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>用户 ID</td>
+</tr>
+<tr>
+<td><code>nickname</code></td>
+<td>string</td>
+<td>-</td>
+<td>用户昵称</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><label for="__tabbed_10_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;get_friend_list&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_10_4" name="__tabbed_10" type="radio" /><label for="__tabbed_10_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;nickname&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;654321&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;nickname&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="get_group_info">get_group_info 获取群组信息</h2>
+<p>通过 <code>group_id</code> 获取群组相关信息。</p>
+<div class="tabbed-set" data-tabs="11:4"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>群号</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><label for="__tabbed_11_2">响应参数</label><div class="tabbed-content">
+<blockquote>
+<p>OneBot 标准只规定 <code>group_id</code> 和 <code>group_name</code> 参数作为必须返回的内容，其他信息可以使用扩展字段。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>群号</td>
+</tr>
+<tr>
+<td><code>group_name</code></td>
+<td>string</td>
+<td>-</td>
+<td>群组名称</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><label for="__tabbed_11_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;get_group_info&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_11_4" name="__tabbed_11" type="radio" /><label for="__tabbed_11_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;group_name&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="get_group_list">get_group_list 获取群组列表</h2>
+<p>获取机器人加入的群组列表。</p>
+<blockquote>
+<p>OneBot 标准只规定 <code>group_id</code> 和 <code>group_name</code> 参数作为必须返回的内容，其他信息（例如分组信息）可以使用扩展字段。</p>
+<p>响应内容为 json 数组格式，参数内的字段为每个元素内的参数。</p>
+</blockquote>
+<div class="tabbed-set" data-tabs="12:4"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><label for="__tabbed_12_1">参数</label><div class="tabbed-content">
+<p>无请求参数。</p>
+</div>
+<input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><label for="__tabbed_12_2">响应参数</label><div class="tabbed-content">
+<blockquote>
+<p>OneBot 标准只规定 <code>group_id</code> 和 <code>group_name</code> 参数作为必须返回的内容，其他信息可以使用扩展字段。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>群号</td>
+</tr>
+<tr>
+<td><code>group_name</code></td>
+<td>string</td>
+<td>-</td>
+<td>群组名称</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><label for="__tabbed_12_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;get_group_list&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_12_4" name="__tabbed_12" type="radio" /><label for="__tabbed_12_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;group_name&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
+        <span class="p">},</span>
+        <span class="err">//...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="get_group_member_info">get_group_member_info 获取群成员信息</h2>
+<p>获取群内的某个成员信息。</p>
+<div class="tabbed-set" data-tabs="13:4"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><label for="__tabbed_13_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>群号</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>群内成员 ID</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><label for="__tabbed_13_2">响应参数</label><div class="tabbed-content">
+<blockquote>
+<p>OneBot 标准只规定以下参数作为必须返回的内容，其他信息可以使用扩展字段。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>群号</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>用户 ID</td>
+</tr>
+<tr>
+<td><code>nickname</code></td>
+<td>string</td>
+<td>-</td>
+<td>用户昵称</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><label for="__tabbed_13_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;get_group_member_info&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;3847573&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_13_4" name="__tabbed_13" type="radio" /><label for="__tabbed_13_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;3847573&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;nickname&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="get_group_member_list">get_group_member_list 获取群成员列表</h2>
+<p>获取群内的成员列表。</p>
+<blockquote>
+<p>OneBot 标准只规定部分参数作为必须返回的内容，其他信息（例如用户的头衔）可以使用扩展字段。</p>
+<p>响应内容为 json 数组格式，参数内的字段为每个元素内的参数。</p>
+</blockquote>
+<div class="tabbed-set" data-tabs="14:4"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><label for="__tabbed_14_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>群号</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><label for="__tabbed_14_2">响应参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>用户 ID</td>
+</tr>
+<tr>
+<td><code>nickname</code></td>
+<td>string</td>
+<td>-</td>
+<td>用户昵称</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><label for="__tabbed_14_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;get_group_member_list&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;group_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_14_4" name="__tabbed_14" type="radio" /><label for="__tabbed_14_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;111222333&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;nickname&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;444555666&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;nickname&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span>
+        <span class="p">},</span>
+        <span class="err">//...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="get_file">get_file 获取文件</h2>
+<p>通过 Action 动作方式获取 OneBot 的文件。</p>
+<blockquote>
+<p>待定。</p>
+</blockquote>
+<h2 id="upload_file">upload_file 上传文件</h2>
+<p>通过 Action 给 OneBot 实现上传文件。</p>
+<p>因为 OneBot 标准规定了多种通讯方式，为了适应不同种类的上传文件，可以选择多种上传格式。</p>
+<div class="tabbed-set" data-tabs="15:4"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><label for="__tabbed_15_1">参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>-</td>
+<td>上传的方式，限定 <code>uri</code>、<code>bytes</code> 两种格式</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>-</td>
+<td>上传的文件名，如 <code>foo.jpg</code></td>
+</tr>
+<tr>
+<td><code>uri</code></td>
+<td>string</td>
+<td>如果 <code>type</code> 为 <code>uri</code> 则必须有此项</td>
+<td>上传的 URI，<strong>必须</strong>以传输协议开头，限定 <code>http(s)://</code>、<code>file://</code>、<code>base64://</code></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>base64 或 bytes</td>
+<td>如果 <code>type</code> 为 <code>bytes</code> 则必须有此项</td>
+<td>上传的文件内容字节数据或 base64 数据</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td>string</td>
+<td>空（可选）</td>
+<td>文件的类别，限定 <code>image</code>、<code>audio</code>、<code>file</code>，可使用平台前缀进行扩展</td>
+</tr>
+<tr>
+<td><code>sha256</code></td>
+<td>string</td>
+<td>空（可选）</td>
+<td>整个文件的 sha256，用于校验</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>如果使用 JSON 格式请求此动作，则 <code>data</code> 段内容为 base64；如果使用 MsgPack 格式请求此动作，则 <code>data</code> 段内容为纯二进制。</p>
+</blockquote>
+</div>
+<input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><label for="__tabbed_15_2">响应参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>上传文件的文件 ID，可后期使用</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><label for="__tabbed_15_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;upload_file&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uri&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;logo.jpg&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;image&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;uri&quot;</span><span class="p">:</span> <span class="s2">&quot;https://1bot.dev/assets/logo.png&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_15_4" name="__tabbed_15" type="radio" /><label for="__tabbed_15_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;file_id&quot;</span><span class="p">:</span> <span class="s2">&quot;e30f9684-3d54-4f65-b2da-db291a477f16&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="upload_file_fragmented">upload_file_fragmented 分段上传文件</h2>
+<p>分段上传文件，适用于一些特殊情况下大文件的传输，例如 WebSocket 环境只能使用本身连接来传输文件。</p>
+<p>分段上传文件首先需要有一个prepare 阶段，</p>
+<div class="tabbed-set" data-tabs="16:2"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><label for="__tabbed_16_1">prepare 请求参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stage</code></td>
+<td>string</td>
+<td>-</td>
+<td>上传阶段，prepare 阶段限定 <code>prepare</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>-</td>
+<td>上传的文件名</td>
+</tr>
+<tr>
+<td><code>total_size</code></td>
+<td>int64</td>
+<td>-</td>
+<td>要上传的文件大小（字节）</td>
+</tr>
+<tr>
+<td><code>sha256</code></td>
+<td>string</td>
+<td>空（可选）</td>
+<td>文件的 sha256，用于验证完整性</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><label for="__tabbed_16_2">prepare 响应参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>文件的资源 ID</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>transfer 为分段传输文件的阶段</p>
+<div class="tabbed-set" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><label for="__tabbed_17_1">transfer 必填参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file_id</code></td>
+<td>string</td>
+<td>-</td>
+<td>上传的文件 ID，通过 <code>prepare</code> 阶段获取</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td>int64</td>
+<td>-</td>
+<td>要上传的文件偏移字节数</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>int64</td>
+<td>-</td>
+<td>要上传的文件分段大小</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>base64 或 bytes</td>
+<td>-</td>
+<td>上传的文件内容字节数据或 base64 数据</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>如果使用 JSON 格式请求此动作，则 <code>data</code> 段内容为 base64；如果使用 MsgPack 格式请求此动作，则 <code>data</code> 段内容为纯二进制。</p>
+</blockquote>
+</div>
+<input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><label for="__tabbed_17_2">transfer 响应参数</label><div class="tabbed-content">
+<p>待定。</p>
+</div>
+</div>
+<h2 id="get_status-onebot">get_status 获取 OneBot 状态</h2>
+<p>获取 OneBot 实现的运行状态。</p>
+<div class="tabbed-set" data-tabs="18:4"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><label for="__tabbed_18_1">请求参数</label><div class="tabbed-content">
+<p>无请求参数。</p>
+</div>
+<input id="__tabbed_18_2" name="__tabbed_18" type="radio" /><label for="__tabbed_18_2">响应参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>good</code></td>
+<td>bool</td>
+<td>是否各项状态都符合预期，OneBot 实现各模块均正常</td>
+</tr>
+<tr>
+<td><code>online</code></td>
+<td>bool</td>
+<td>OneBot 实现对接的平台连接是否顺畅（如 QQ 平台为是否在线）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_18_3" name="__tabbed_18" type="radio" /><label for="__tabbed_18_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;get_version&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_18_4" name="__tabbed_18" type="radio" /><label for="__tabbed_18_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;go-onebot-qq&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;qq&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;onebot_version&quot;</span><span class="p">:</span> <span class="s2">&quot;12&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="get_version">get_version 获取版本信息</h2>
+<p>获取 OneBot 版本信息。</p>
+<p>对于补充的版本信息，比如 OneBot 实现使用了开源的第三方组件，可以使用前缀加扩展的字段进行补充。</p>
+<div class="tabbed-set" data-tabs="19:4"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><label for="__tabbed_19_1">请求参数</label><div class="tabbed-content">
+<p>无请求参数。</p>
+</div>
+<input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><label for="__tabbed_19_2">响应参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>OneBot 实现的名称</td>
+</tr>
+<tr>
+<td><code>platform</code></td>
+<td>string</td>
+<td>OneBot 实现的平台前缀</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>string</td>
+<td>OneBot 实现自身的的版本号</td>
+</tr>
+<tr>
+<td><code>onebot_version</code></td>
+<td>string</td>
+<td>OneBot 实现的 OneBot 标准版本号</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_19_3" name="__tabbed_19" type="radio" /><label for="__tabbed_19_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;get_version&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_19_4" name="__tabbed_19" type="radio" /><label for="__tabbed_19_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;go-onebot-qq&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;qq&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;onebot_version&quot;</span><span class="p">:</span> <span class="s2">&quot;12&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="get_latest_events">get_latest_events 轮询获取事件列表</h2>
+<p>对 HTTP 通信方式适用，可以在 HTTP 通信方式下通过此动作轮询获取 OneBot 事件。</p>
+<p>响应的数据与 OneBot 事件返回的元素相同。</p>
+<div class="tabbed-set" data-tabs="20:4"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><label for="__tabbed_20_1">请求参数</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>limit</code></td>
+<td>int64</td>
+<td>空（可选）</td>
+<td>获取的事件数量上限</td>
+</tr>
+<tr>
+<td><code>timeout</code></td>
+<td>int64</td>
+<td>空（可选）</td>
+<td>没有事件时要等待的秒数，0 表示使用短轮询，不等待</td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><label for="__tabbed_20_2">响应参数</label><div class="tabbed-content">
+<p>响应内容与 OneBot 事件内容元素相同。</p>
+</div>
+<input id="__tabbed_20_3" name="__tabbed_20" type="radio" /><label for="__tabbed_20_3">请求数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;get_latest_events&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="nt">&quot;timeout&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_20_4" name="__tabbed_20" type="radio" /><label for="__tabbed_20_4">响应数据</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;retcode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;message&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;event_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1234567899377234&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;detail_type&quot;</span><span class="p">:</span> <span class="s2">&quot;private&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sub_type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;哈哈哈&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../message/message-array/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 消息格式" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              消息格式
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../event/" class="md-footer__link md-footer__link--next" aria-label="下一页: 事件（Event）" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              事件（Event）
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+    
+  </body>
+</html>
